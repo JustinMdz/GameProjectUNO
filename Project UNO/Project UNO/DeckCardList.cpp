@@ -61,3 +61,63 @@ void DeckCardList::deleteLastNode()
 		}
 	}
 }
+
+void DeckCardList::insertCeroes()
+{
+	string auxCardColors[] = { "Red", "Blue", "Green", "Yellow" };
+	string ceroesId = "0";
+	int cardColors = 4;
+	Card* card;
+
+	for (int index = 0; index < cardColors; index++) {
+		card = new Card(ceroesId, auxCardColors[index]);
+		insertFirstNode(card);
+	}
+}
+
+void DeckCardList::insertSpecialCards()
+{
+	Card* specialCard;
+	string specialCards[] = { "ChangeColor", "+4" };
+	string colorOfSpecialCard = "Black";
+	int quantitySpecialsCards = 2;
+	int specialCardsCopies = 4;
+
+	for (int index1 = 0; index1 < quantitySpecialsCards; index1++) {
+		for (int index2 = 0; index2 < specialCardsCopies; index2++) {
+			specialCard = new Card(specialCards[index1], colorOfSpecialCard);
+			insertFirstNode(specialCard);
+		}
+	}
+}
+
+void DeckCardList::insertNormalCards()
+{
+	string cardColors[] = { "Red", "Blue", "Green", "Yellow" };
+	string cardValuesId[] = { "1","2", "3", "4", "5", "6", "7", "8", "9", "Block", "Reverse", "+2" };
+	Card* normalCard;
+
+	for (const string& colorIndex : cardColors) {
+		for (const string& valueIdIndex : cardValuesId) {
+			normalCard = new Card(colorIndex, valueIdIndex);
+			insertFirstNode(normalCard);
+		}
+	}
+}
+
+void DeckCardList::runList()
+{
+	insertCeroes();
+	insertSpecialCards();
+	insertNormalCards();
+	insertNormalCards();
+}
+
+void DeckCardList::printList()
+{
+	currentNode = firstNode;
+	while (currentNode != NULL) {
+		cout << currentNode->toString() << endl;
+		currentNode = currentNode->getNextNode();
+	}
+}

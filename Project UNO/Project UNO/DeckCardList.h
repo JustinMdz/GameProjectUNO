@@ -14,5 +14,13 @@ public:
 	void deleteFirstNode();
 	void insertLastNode(Card* ptrCard);
 	void deleteLastNode();
+
+	void insertCeroes();
+	void insertSpecialCards();
+	void insertNormalCards();
+
+	void runList();
+
+	void printList();
 };
 
