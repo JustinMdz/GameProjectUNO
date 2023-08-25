@@ -3,8 +3,16 @@
 class Graphics
 {
 private: 
-   
-public:
+	RenderWindow backgroundWindow;
+	Texture backgroundTexture;
+	Sprite backgroundSprite;
 
+	void processEvents();
+	void render();
+	void extendBackground();
+
+public:
+	Graphics();
+	void runBackground();
 };
 

@@ -71,8 +71,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project UNO\SFML-2.6.0\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\justi\OneDrive\Documentos\UNA\Progra I\Proyectos\Proyecto#1 UNO\Project UNO\SFML-2.6.0\lib;C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project UNO\SFML-2.6.0\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project UNO\SFML-2.6.0\include;C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\SFML-2.6.0\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\SFML-2.6.0\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
