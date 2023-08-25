@@ -10,6 +10,9 @@ public:
 	DeckCardList();
 	~DeckCardList();
 
+	void setFirstNode(Node* ptrFirstNode);
+	Node* getFirstNode();
+
 	void insertFirstNode(Card* ptrCard);
 	void deleteFirstNode();
 	void insertLastNode(Card* ptrCard);
@@ -23,4 +26,3 @@ public:
 
 	void printList();
 };
-

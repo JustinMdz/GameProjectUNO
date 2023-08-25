@@ -14,6 +14,16 @@ DeckCardList::~DeckCardList()
 	}
 }
 
+void DeckCardList::setFirstNode(Node* ptrFirstNode)
+{
+	firstNode = ptrFirstNode;
+}
+
+Node* DeckCardList::getFirstNode()
+{
+	return firstNode;
+}
+
 void DeckCardList::insertFirstNode(Card* ptrCard)
 {
 	firstNode = new Node(ptrCard, firstNode);

@@ -133,6 +133,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Card.cpp" />
+    <ClCompile Include="Dealer.cpp" />
     <ClCompile Include="DeckCardList.cpp" />
     <ClCompile Include="DeckOfPlayer.cpp" />
     <ClCompile Include="Graphics.cpp" />
@@ -142,6 +143,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Card.h" />
+    <ClInclude Include="Dealer.h" />
     <ClInclude Include="DeckCardList.h" />
     <ClInclude Include="DeckOfPlayer.h" />
     <ClInclude Include="Graphics.h" />
