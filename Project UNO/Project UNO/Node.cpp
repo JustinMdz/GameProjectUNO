@@ -10,7 +10,7 @@ Node::~Node()
 	delete unoCard;
 }
 
-void Node::setCard(Card* ptrCard)
+void Node::setUnoCard(Card* ptrCard)
 {
 	unoCard = ptrCard;
 }
@@ -20,7 +20,7 @@ void Node::setNextNode(Node* ptrNextNode)
 	nextNode = ptrNextNode;
 }
 
-Card* Node::getCard()
+Card* Node::getUnoCard()
 {
 	return unoCard;
 }

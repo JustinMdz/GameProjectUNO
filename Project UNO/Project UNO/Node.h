@@ -10,9 +10,9 @@ private:
 public:
 	Node(Card*, Node*);
 	~Node();
-	void setCard(Card* ptrCard);
+	void setUnoCard(Card* ptrCard);
 	void setNextNode(Node* ptrNextNode);
-	Card* getCard();
+	Card* getUnoCard();
 	Node* getNextNode();
 	string toString();
 };

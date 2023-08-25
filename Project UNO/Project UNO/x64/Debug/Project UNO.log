@@ -1,2 +1,7 @@
-﻿  Project UNO main.cpp
+﻿  Dealer.cpp
+C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Dealer.cpp(48,15): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+  DeckCardList.cpp
+  Node.cpp
+  Project UNO main.cpp
+  Generando código...
   Project UNO.vcxproj -> C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\x64\Debug\Project UNO.exe

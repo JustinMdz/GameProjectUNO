@@ -6,13 +6,13 @@ class Dealer
 private:
 	DeckCardList* cardDeckList;
 public:
-	Dealer();
+	Dealer(DeckCardList*);
 	~Dealer();
 
 	void setCardList(DeckCardList* ptrCardList);
 	DeckCardList* getCardList();
 
-	void shufleMaze();
-
+	int countNodes(DeckCardList* deckOfCards);
+	void swapCardsOnNodes(Node*, Node*);
+	void shufleMaze(DeckCardList*);
 };
-
