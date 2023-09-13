@@ -132,20 +132,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="Card.cpp" />
     <ClCompile Include="Dealer.cpp" />
     <ClCompile Include="DeckCardList.cpp" />
     <ClCompile Include="DeckOfPlayer.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameRule.cpp" />
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Project UNO main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Button.h" />
     <ClInclude Include="Card.h" />
     <ClInclude Include="Dealer.h" />
     <ClInclude Include="DeckCardList.h" />
     <ClInclude Include="DeckOfPlayer.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="GameRule.h" />
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="Librarys.h" />
     <ClInclude Include="Node.h" />
