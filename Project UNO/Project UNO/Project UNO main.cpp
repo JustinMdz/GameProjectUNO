@@ -10,7 +10,7 @@ int main()
     list->runList();
     list->printList();
 
-    cardsDealer.shufleMaze(list);
+    cardsDealer.shuffleCardDeckList(list);
     cout << endl << endl << endl;
     list->printList();
 

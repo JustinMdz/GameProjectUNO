@@ -38,44 +38,43 @@ void DeckCardList::deleteFirstNode()
 	}
 }
 
-void DeckCardList::insertLastNode(Card* ptrCard)
+void DeckCardList::deleteNode(Card*& cardToMove)
 {
-	if (firstNode == NULL) {
-		firstNode = new Node(ptrCard, firstNode);
-	}
-	else {
-		currentNode = firstNode;
-		while (currentNode->getNextNode() != NULL) {
-			currentNode = currentNode->getNextNode();
-		}
-		currentNode->setNextNode(new Node(ptrCard, NULL));
-	}
-}
+	string colorCardInDeck = firstNode->getUnoCard()->getCardColor();
+	string idCardInDeck = firstNode->getUnoCard()->getCardId();
+	string cardId = cardToMove->getCardId();
+	string cardColor = cardToMove->getCardColor();
 
-void DeckCardList::deleteLastNode()
-{
-	currentNode = firstNode;
-	Node* lastNode = currentNode;
-	if (firstNode != NULL) {
-		if (firstNode->getNextNode() == NULL) {
-			delete firstNode;
-			firstNode = NULL;
+	Node* auxDeleteNode;
+	Node* previuosNode = NULL;
+
+	auxDeleteNode = firstNode;
+
+	if (auxDeleteNode != NULL) {
+
+		while ((auxDeleteNode != NULL) || ((cardId != idCardInDeck) && (cardColor != colorCardInDeck))) {
+			previuosNode = auxDeleteNode;
+			auxDeleteNode->getNextNode();
+			colorCardInDeck = auxDeleteNode->getUnoCard()->getCardColor();
+			idCardInDeck = auxDeleteNode->getUnoCard()->getCardId();
 		}
+
+		if (previuosNode == NULL) {
+			deleteFirstNode();
+		}
+
 		else {
-			while (currentNode->getNextNode() != NULL) {
-				lastNode = currentNode;
-				currentNode = currentNode->getNextNode();
-			}
-			lastNode->setNextNode(NULL);
-			delete  currentNode;
+			previuosNode->setNextNode(auxDeleteNode->getNextNode());
+			delete auxDeleteNode;
 		}
 	}
 }
 
-void DeckCardList::insertCeroes()
+void DeckCardList::insertZeros()
 {
 	string auxCardColors[] = { "Red", "Blue", "Green", "Yellow" };
 	string ceroesId = "0";
+
 	int cardColors = 4;
 	Card* card;
 
@@ -109,7 +108,7 @@ void DeckCardList::insertNormalCards()
 
 	for (const string& colorIndex : cardColors) {
 		for (const string& valueIdIndex : cardValuesId) {
-			normalCard = new Card(colorIndex, valueIdIndex);
+			normalCard = new Card(valueIdIndex, colorIndex);
 			insertFirstNode(normalCard);
 		}
 	}
@@ -117,9 +116,9 @@ void DeckCardList::insertNormalCards()
 
 void DeckCardList::runList()
 {
-	insertCeroes();
-	insertSpecialCards();
-	insertNormalCards();
+	//insertZeros();
+	//insertSpecialCards();
+	//insertNormalCards();
 	insertNormalCards();
 }
 
@@ -130,4 +129,50 @@ void DeckCardList::printList()
 		cout << currentNode->toString() << endl;
 		currentNode = currentNode->getNextNode();
 	}
+}
+
+void DeckCardList::moveFirstCardOnList(DeckCardList*& playerDeck, DeckCardList*& cardDeck)
+{
+	//revisar metodos, los dos primeros son lo mismo, considero mas apropiado el tercero, pero no se por que no funciona
+
+	/*string  colorToMove = cardDeck->getFirstNode()->getUnoCard()->getCardColor();
+	string  idToMove = cardDeck->getFirstNode()->getUnoCard()->getCardId();
+	Card* cardToMove = new Card(idToMove, colorToMove);*/
+	Card* cardToMove = new Card((cardDeck->getFirstNode()->getUnoCard()->getCardId()), (cardDeck->getFirstNode()->getUnoCard()->getCardColor()));
+
+	/*Card* cardToMove = new Card();
+	cardToMove = cardDeck->getFirstNode()->getUnoCard();*/
+
+	playerDeck->insertFirstNode(cardToMove);
+	cardDeck->deleteFirstNode();
+}
+
+Card* DeckCardList::getCardToMove(string idOfCard, string colorOfCard)
+{
+	Card* cardToMove = new Card();
+	string idOfCardToMove;
+	string colorOfCardToMove;
+
+	currentNode = firstNode;
+
+	while ((idOfCard != idOfCardToMove) && (colorOfCard != colorOfCardToMove)) {
+
+		idOfCardToMove = currentNode->getUnoCard()->getCardId();
+		colorOfCardToMove = currentNode->getUnoCard()->getCardColor();
+
+		if ((idOfCard == idOfCardToMove) && (colorOfCard == colorOfCardToMove)) {
+			cardToMove = new Card(idOfCard, colorOfCard);
+		}
+		currentNode = currentNode->getNextNode();
+	}
+	return cardToMove;
+}
+
+bool DeckCardList::isListEmpty()
+{
+	bool listEmpty = false;
+	if (firstNode == NULL) {
+		listEmpty = true;
+	}
+	return listEmpty;
 }

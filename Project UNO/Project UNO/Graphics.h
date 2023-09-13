@@ -1,5 +1,8 @@
 #pragma once
+#include <SFML/Graphics.hpp>
 #include "Librarys.h"
+using namespace sf;
+
 class Graphics
 {
 private: 
@@ -15,4 +18,3 @@ public:
 	Graphics();
 	void runBackground();
 };
-

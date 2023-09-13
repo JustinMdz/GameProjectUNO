@@ -15,14 +15,19 @@ public:
 
 	void insertFirstNode(Card* ptrCard);
 	void deleteFirstNode();
-	void insertLastNode(Card* ptrCard);
-	void deleteLastNode();
 
-	void insertCeroes();
+	void deleteNode(Card*&);
+
+	void insertZeros();
 	void insertSpecialCards();
 	void insertNormalCards();
 
 	void runList();
 
 	void printList();
+
+	void moveFirstCardOnList(DeckCardList*&, DeckCardList*&);
+
+	Card* getCardToMove(string, string);
+	bool isListEmpty();
 };
