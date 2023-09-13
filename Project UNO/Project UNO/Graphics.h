@@ -20,6 +20,11 @@ private:
 	DeckCardList* gameDiscardCardList;
 	DeckCardList* playerDeckCardList;
 
+	Button* startGame = new Button(100, 200, 300, 400);
+	Menu* mainMenu = new Menu(200, 300);
+	bool menuOptionOneSelected = false;
+
+
 public:
 	Graphics();
 
@@ -35,4 +40,14 @@ public:
 	void drawPlayerDeckList();
 	void drawGameDeckCardList();
 	void drawGameDiscardList();
+
+	void setPlayerDeckToShow(DeckCardList*&);
+	void setDiscardListToShow(DeckCardList*&);
+	void setGameDeckCardListToShow(DeckCardList*&);
+
+	void runMenuOptions();
+	void runMenuMoves(Event&);
+	void processMenuEvents(Event&);
+
+	void handleMouseClick(Event&);
 };

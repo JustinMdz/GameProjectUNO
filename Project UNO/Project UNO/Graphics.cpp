@@ -149,3 +149,75 @@ void Graphics::drawPlayerDeckList()
 }
 
 // drawPlayer2Deck = drawPlayer deck pero camnbiamos la Y nada mas
+
+void Graphics::setPlayerDeckToShow(DeckCardList*& playerDeckInGame)
+{
+    this->playerDeckCardList = playerDeckInGame;
+}
+
+void Graphics::setDiscardListToShow(DeckCardList*& discardCardListInGame)
+{
+    this->gameDiscardCardList = discardCardListInGame;
+}
+
+void Graphics::setGameDeckCardListToShow(DeckCardList*& deckCardsListInGame)
+{
+    this->gameDeckCardList = deckCardsListInGame;
+}
+
+void Graphics::runMenuOptions()
+{
+    int pressedItem = mainMenu->getPressedItem();
+
+    if (pressedItem == 0) {
+        mainMenu->setOffOption();
+        menuOptionOneSelected = true; // Opción uno está seleccionada
+        render();
+    }
+    else {
+        menuOptionOneSelected = false; // Opción uno ya no está seleccionada
+    }
+
+    if (pressedItem == 1) {
+        mainMenu->setOffOption();
+        render();
+        cout << "Options pressed";
+    }
+    if (pressedItem == 2) {
+        backgroundWindow.close();
+    }
+}
+
+void Graphics::runMenuMoves(Event& menuEvent)
+{
+    if (menuEvent.key.code == Keyboard::Up) {
+        mainMenu->moveOptionUp();
+    }
+    if (menuEvent.key.code == Keyboard::Down) {
+        mainMenu->moveOptionDown();
+    }
+}
+
+void Graphics::processMenuEvents(Event& menuEvent)
+{
+    if (menuEvent.type == Event::KeyReleased) {
+        runMenuMoves(menuEvent);
+    }
+
+    if (menuEvent.key.code == Keyboard::Return) {
+        runMenuOptions();
+    }
+}
+
+void Graphics::handleMouseClick(Event& buttonEvent)
+{
+    if (buttonEvent.type == Event::MouseButtonPressed &&
+        buttonEvent.mouseButton.button == Mouse::Left) {
+        Vector2i mousePos = Mouse::getPosition(backgroundWindow);
+        Vector2f mousePosF(static_cast<float>(mousePos.x), static_cast<float>(mousePos.y));
+
+        if (startGame->contains(mousePosF)) {
+            menuOptionOneSelected = false;
+        }
+    }
+}
