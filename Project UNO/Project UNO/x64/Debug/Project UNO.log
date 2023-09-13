@@ -1,5 +1,15 @@
-﻿  Button.cpp
+﻿  Dealer.cpp
+C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Dealer.cpp(50,15): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
   DeckCardList.cpp
+  Menu.cpp
+C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Menu.cpp(15,43): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Menu.cpp(36,12): error C2039: "setOnOption": no es un miembro de "Menu"
+C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Menu.h(7,7): message : vea la declaración de 'Menu'
+C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Menu.cpp(38,2): error C2065: 'inOption': identificador no declarado
+C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Menu.cpp(41,12): error C2039: "setOffOption": no es un miembro de "Menu"
+C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Menu.h(7,7): message : vea la declaración de 'Menu'
+C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Menu.cpp(43,2): error C2065: 'inOption': identificador no declarado
+  Node.cpp
   Player.cpp
+  Project UNO main.cpp
   Generando código...
-  Project UNO.vcxproj -> C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\x64\Debug\Project UNO.exe
