@@ -31,6 +31,42 @@ bool Menu::getOption()
 	return inOption;
 }
 
+void Menu::setOnOption()
+{
+	inOption = true;
+}
+
+void Menu::setOffOption()
+{
+	inOption = false;
+}
+
+void Menu::moveOptionUp()
+{
+	if (selectedOptionMenuIndex - 1 >= 0) {
+		mainMenuOptions[selectedOptionMenuIndex].setFillColor(Color::White);
+		selectedOptionMenuIndex--;
+
+		if (selectedOptionMenuIndex == -1) {
+			selectedOptionMenuIndex = 2;
+		}
+		mainMenuOptions[selectedOptionMenuIndex].setFillColor(Color::Blue);
+	}
+}
+
+void Menu::moveOptionDown()
+{
+	if (selectedOptionMenuIndex + 1 <= MENU_OPTIONS) {
+		mainMenuOptions[selectedOptionMenuIndex].setFillColor(Color::White);
+		selectedOptionMenuIndex++;
+
+		if (selectedOptionMenuIndex == MENU_OPTIONS) {
+			selectedOptionMenuIndex = 0;
+		}
+		mainMenuOptions[selectedOptionMenuIndex].setFillColor(Color::Blue);
+	}
+}
+
 void Menu::isPosibleToDraw(RenderWindow& menuBackgroundWindow)
 {
 	if (inOption == true) {
