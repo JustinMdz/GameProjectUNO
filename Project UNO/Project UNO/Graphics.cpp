@@ -60,3 +60,92 @@ void Graphics::createCardSprite(Texture& textureOfCard)
 {
     cardSprite.setTexture(textureOfCard);
 }
+
+void Graphics::drawGameDiscardList()
+{
+    float cardScale = 0.060;
+    int margen = 15; // Este es el margen deseado
+    int posCardX = 650; // Posición inicial en X de la primera carta
+    int posCardY = 250; // Posición en Y constante para todas las cartas
+    cardSprite.setScale(cardScale, cardScale);
+
+    Node* auxCurrentNode = gameDiscardCardList->getFirstNode();
+
+    string cardColorToInput;
+    string cardIdToInput;
+
+    while (auxCurrentNode != NULL) {
+        cardColorToInput = auxCurrentNode->getUnoCard()->getCardColor();
+        cardIdToInput = auxCurrentNode->getUnoCard()->getCardId();
+
+        loadCardTexture(cardIdToInput, cardColorToInput);
+        createCardSprite(cardTexture);
+
+        // Configura la posición de la carta
+        cardSprite.setPosition(posCardX, posCardY);
+
+        backgroundWindow.draw(cardSprite);
+
+        // Incrementa la posición en X para la siguiente carta
+        posCardX += margen; // Incremento fijo de margen en X
+
+        auxCurrentNode = auxCurrentNode->getNextNode();
+    }
+}
+
+void Graphics::drawGameDeckCardList()
+{
+    float cardScale = 0.060;
+    float margen = 1;
+    int posCardX = 15;
+    int posCardY = 250;
+    cardSprite.setScale(cardScale, cardScale);
+
+    Node* auxCurrentNode = gameDeckCardList->getFirstNode();
+
+    while (auxCurrentNode != NULL) {
+
+        loadBackCardTexture();
+        createCardSprite(cardTexture);
+
+        cardSprite.setPosition(posCardX, posCardY);
+        backgroundWindow.draw(cardSprite);
+
+        posCardY += margen;
+        auxCurrentNode = auxCurrentNode->getNextNode();
+    }
+}
+
+void Graphics::drawPlayerDeckList()
+{
+    float cardScale = 0.075;
+    int margen = 40; // Este es el margen deseado
+    int posCardX = 5; // Posición inicial en X de la primera carta
+    int posCardY = 525; // Posición en Y constante para todas las cartas
+    cardSprite.setScale(cardScale, cardScale);
+
+    Node* auxCurrentNode = playerDeckCardList->getFirstNode();
+
+    string cardColorToInput;
+    string cardIdToInput;
+
+    while (auxCurrentNode != NULL) {
+        cardColorToInput = auxCurrentNode->getUnoCard()->getCardColor();
+        cardIdToInput = auxCurrentNode->getUnoCard()->getCardId();
+
+        loadCardTexture(cardIdToInput, cardColorToInput);
+        createCardSprite(cardTexture);
+
+        // Configura la posición de la carta
+        cardSprite.setPosition(posCardX, posCardY);
+
+        backgroundWindow.draw(cardSprite);
+
+        // Incrementa la posición en X para la siguiente carta
+        posCardX += margen; // Incremento fijo de margen en X
+
+        auxCurrentNode = auxCurrentNode->getNextNode();
+    }
+}
+
+// drawPlayer2Deck = drawPlayer deck pero camnbiamos la Y nada mas

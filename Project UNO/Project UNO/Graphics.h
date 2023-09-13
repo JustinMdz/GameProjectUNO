@@ -16,7 +16,10 @@ private:
 	Texture cardTexture;
 	Sprite cardSprite;
 
-	
+	DeckCardList* gameDeckCardList;
+	DeckCardList* gameDiscardCardList;
+	DeckCardList* playerDeckCardList;
+
 public:
 	Graphics();
 
@@ -28,4 +31,8 @@ public:
 	void loadCardTexture(string, string);
 	void loadBackCardTexture();
 	void createCardSprite(Texture&);
+
+	void drawPlayerDeckList();
+	void drawGameDeckCardList();
+	void drawGameDiscardList();
 };
