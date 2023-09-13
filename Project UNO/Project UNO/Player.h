@@ -18,6 +18,10 @@ public:
 	void setPlayerDeck(DeckCardList* deckOfPlayer);
 	DeckCardList* getPlayerDeck();
 
+	bool checkIsPossibleTrowNormalCard(DeckCardList*&);
+	bool checkIsPossibleTrowSpecialCard();
+	bool checkIsTrowPossible(DeckCardList*&);
+
 	void printPlayerDeck();
 
 	~Player();

@@ -26,6 +26,64 @@ DeckCardList* Player::getPlayerDeck()
 	return playerDeckCardList;
 }
 
+bool Player::checkIsPossibleTrowNormalCard(DeckCardList*& discardMaze)
+{
+	string idOfCardToCheck;
+	string colorOfCardToCheck;
+
+	string discardCardColor = discardMaze->getFirstNode()->getUnoCard()->getCardColor();
+	string discardCardId = discardMaze->getFirstNode()->getUnoCard()->getCardId();
+
+	bool cardFound = false;
+
+	Node* auxCurrentNode = playerDeckCardList->getFirstNode();
+
+	while ((cardFound != true) || (auxCurrentNode != NULL)) {
+
+		colorOfCardToCheck = auxCurrentNode->getUnoCard()->getCardColor();
+		idOfCardToCheck = auxCurrentNode->getUnoCard()->getCardId();
+
+		if ((discardCardColor == colorOfCardToCheck) || (discardCardId == idOfCardToCheck)) {
+			cardFound = true;
+		}
+		auxCurrentNode = auxCurrentNode->getNextNode();
+	}
+	return cardFound;
+}
+
+bool Player::checkIsPossibleTrowSpecialCard()
+{
+	bool specialCardFound = false;
+	string idOfCardToCheck;
+
+	string specialCardChangueColor = "ChangeColor";
+	string specialCardGrabFour = "+4";
+
+	Node* auxCurrentNode = playerDeckCardList->getFirstNode();
+
+	while ((specialCardFound != true) || (auxCurrentNode != NULL)) {
+
+		idOfCardToCheck = auxCurrentNode->getUnoCard()->getCardId();
+
+		if ((specialCardChangueColor == idOfCardToCheck) || (specialCardGrabFour == idOfCardToCheck)) {
+			specialCardFound = true;
+		}
+		auxCurrentNode = auxCurrentNode->getNextNode();
+	}
+	return specialCardFound;
+}
+
+bool Player::checkIsTrowPossible(DeckCardList*& discardMaze)
+{
+	bool isTrowPossible = false;
+	if (checkIsPossibleTrowNormalCard(discardMaze) ||
+		(checkIsPossibleTrowSpecialCard() == true))
+	{
+		isTrowPossible = true;
+	}
+	return isTrowPossible;
+}
+
 void Player::printPlayerDeck()
 {
 	playerDeckCardList->printList();
