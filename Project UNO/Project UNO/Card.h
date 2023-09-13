@@ -7,7 +7,7 @@ private:
 	string cardColor;
 	
 public:
-	Card(string idOfCard);
+	Card();
 	Card(string idOfCard, string colorOfCard);
 	string getCardColor();
 	string getCardId();

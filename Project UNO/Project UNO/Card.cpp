@@ -1,19 +1,11 @@
 #include "Card.h"
 
-Card::Card(string idOfCard)
-{
-	cardId = idOfCard;
-}
+Card::Card() {}
 
 Card::Card(string idOfCard, string colorOfCard)
 {
-	cardId = idOfCard;
-	cardColor = colorOfCard;
-}
-
-string Card::getCardColor()
-{
-	return cardColor;
+	this->cardId = idOfCard;
+	this->cardColor = colorOfCard;
 }
 
 string Card::getCardId()
@@ -21,14 +13,19 @@ string Card::getCardId()
 	return cardId;
 }
 
-void Card::setColor(string cardColor)
+string Card::getCardColor()
 {
-	this->cardColor = cardColor;
+	return cardColor;
 }
 
 void Card::setCardId(string idOfCard)
 {
 	this->cardId = idOfCard;
+}
+
+void Card::setColor(string cardColor)
+{
+	this->cardColor = cardColor;
 }
 
 string Card::toString()
