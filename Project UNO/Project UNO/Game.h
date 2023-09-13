@@ -3,8 +3,8 @@
 #include "Player.h"
 #include "Dealer.h"
 
-class Game
-{
+class Game {
+
 private:
 	Player* playerOne;
 	Player* playerTwo;
@@ -12,10 +12,17 @@ private:
 	DeckCardList* gameDiscardDeckList;
 	Dealer* gameDealer;
 
+	int actualPlayer = 1;
+	int indexPlayerTurn = 0;
+
 public:
 	Game();
+
 	void fillPlayerName();
 	void start();
 	bool isGameFinished(Player*&);
-	~Game();
+
+	void firstPlayByDefault();
+	void playerTurn(Player*&);
+	Player*& getPlayerOnTurn();
 };

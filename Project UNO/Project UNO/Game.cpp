@@ -26,13 +26,18 @@ void Game::fillPlayerName()
 void Game::start()
 {
     bool endOfTheGame = false;
+    int index = 0;
 
     fillPlayerName();
+    firstPlayByDefault();
 
     while (endOfTheGame != true) {
 
-        cout << "Game started";
+        playerTurn((getPlayerOnTurn()));
+        index++;
     }
+
+    cout << "Fin del juego. Se han jugado " << index << " turnos." << endl;
 }
 
 bool Game::isGameFinished(Player*& playerOnTurn)
@@ -44,4 +49,43 @@ bool Game::isGameFinished(Player*& playerOnTurn)
     }
 
     return gameFinished;
+}
+
+void Game::firstPlayByDefault()
+{
+    int initialGameCardsToGrab = 8;
+    gameCardDeckList->runList();
+    gameDealer->shuffleCardDeckList(gameCardDeckList);
+    playerOne->grabCard(initialGameCardsToGrab, gameCardDeckList);
+    playerTwo->grabCard(initialGameCardsToGrab, gameCardDeckList);
+    gameDiscardDeckList->moveFirstCardOnList(gameDiscardDeckList, gameCardDeckList);
+}
+
+void Game::playerTurn(Player*& playerOnTurn)
+{
+    /* int defaultCardToGrab = 1;
+     if (playerOnTurn->checkIsTrowPossible(gameDiscardDeckList) == true) {
+         playerOnTurn->selectCardToTrow();
+     }
+     else {
+         //playerOnTurn->grabCard(defaultCardToGrab,gameCardDeckList);
+     }*/
+    string nom;
+    cout << "\n\nTurno de : " << playerOnTurn->getName();
+    cout << "\nturno : " << indexPlayerTurn << ", Digite algo: ";
+    cin >> nom;
+
+}
+
+Player*& Game::getPlayerOnTurn()
+{
+    if (indexPlayerTurn % 2 == 0) {
+        indexPlayerTurn++;
+        return playerOne;
+    }
+
+    if (indexPlayerTurn % 2 != 0) {
+        indexPlayerTurn++;
+        return playerTwo;
+    }
 }
