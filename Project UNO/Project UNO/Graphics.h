@@ -8,7 +8,6 @@ using namespace sf;
 class Graphics
 {
 private:
-
 	RenderWindow backgroundWindow;
 	Texture backgroundTexture;
 	Sprite backgroundSprite;
@@ -23,7 +22,6 @@ private:
 	Button* startGame = new Button(100, 200, 300, 400);
 	Menu* mainMenu = new Menu(200, 300);
 	bool menuOptionOneSelected = false;
-
 
 public:
 	Graphics();

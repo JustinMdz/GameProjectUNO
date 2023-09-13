@@ -2,19 +2,45 @@
 #include "Graphics.h"
 #include "DeckCardList.h"
 #include "Dealer.h"
+#include "Player.h"
+#include "Game.h"
 int main()
 {
-    DeckCardList* list= new DeckCardList();
-    Dealer cardsDealer(list);
+    Player* playerOne = new Player();
+    Graphics* backWindow = new Graphics();
 
-    list->runList();
-    list->printList();
+    DeckCardList* mazo = new DeckCardList();
+    DeckCardList* discardList = new DeckCardList();
 
-    cardsDealer.shuffleCardDeckList(list);
-    cout << endl << endl << endl;
-    list->printList();
+    Dealer* dealer = new Dealer(mazo);
 
-    Graphics background;
-    background.runBackground();
+    mazo->runList();
+    dealer->shuffleCardDeckList(mazo);
+
+    discardList->moveFirstCardOnList(discardList, mazo);
+    discardList->moveFirstCardOnList(discardList, mazo);
+    discardList->moveFirstCardOnList(discardList, mazo);
+    discardList->moveFirstCardOnList(discardList, mazo);
+    discardList->moveFirstCardOnList(discardList, mazo);//
+
+    cout << "Cartas en el mazo: " << endl << endl;
+    mazo->printList();
+
+    cout << "\n\nCartas en descarte: " << endl << endl;
+    discardList->printList();
+
+    cout << "\n\nCartas jugador: \n\n";
+    playerOne->grabCard(7, mazo);
+    playerOne->printPlayerDeck();
+
+    backWindow->setDiscardListToShow(discardList);
+    backWindow->setGameDeckCardListToShow(mazo);
+
+    DeckCardList* deck = playerOne->getPlayerDeck();
+
+    backWindow->setPlayerDeckToShow(deck);
+
+    backWindow->runBackground();
+
     return 0;
 }

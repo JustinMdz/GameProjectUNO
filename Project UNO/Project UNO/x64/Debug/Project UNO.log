@@ -1,14 +1,14 @@
 ﻿  Graphics.cpp
-C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Graphics.cpp(66,21): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Graphics.cpp(85,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Graphics.cpp(85,32): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Graphics.cpp(98,21): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Graphics.cpp(111,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Graphics.cpp(111,32): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Graphics.cpp(114,21): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Graphics.cpp(121,21): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Graphics.cpp(140,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Graphics.cpp(140,32): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Graphics.cpp(79,21): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Graphics.cpp(92,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Graphics.cpp(92,32): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Graphics.cpp(95,21): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Graphics.cpp(102,21): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Graphics.cpp(121,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Graphics.cpp(121,32): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Graphics.cpp(134,21): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Graphics.cpp(153,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Graphics.cpp(153,32): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
   Project UNO main.cpp
   Generando código...
   Project UNO.vcxproj -> C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\x64\Debug\Project UNO.exe

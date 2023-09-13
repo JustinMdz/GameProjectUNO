@@ -14,13 +14,26 @@ void Graphics::processEvents()
         if (event.type == Event::Closed) {
             backgroundWindow.close();
         }
-      
+        processMenuEvents(event);
+        handleMouseClick(event);
     }
 }
 
 void Graphics::render() {
     backgroundWindow.clear();
     backgroundWindow.draw(backgroundSprite);
+
+    /*if (menuOptionOneSelected) {
+        startGame->draw(backgroundWindow);
+        drawDiscardList();
+        drawMaze();
+        drawPlayerDeckList();
+    }
+
+    mainMenu->isPosibleToDraw(backgroundWindow);*/
+    drawGameDiscardList();
+    drawPlayerDeckList();
+    drawGameDeckCardList();
     backgroundWindow.display();
 }
 
@@ -61,6 +74,29 @@ void Graphics::createCardSprite(Texture& textureOfCard)
     cardSprite.setTexture(textureOfCard);
 }
 
+void Graphics::drawGameDeckCardList()
+{
+    float cardScale = 0.060;
+    float margen = 1;
+    int posCardX = 15;
+    int posCardY = 250;
+    cardSprite.setScale(cardScale, cardScale);
+
+    Node* auxCurrentNode = gameDeckCardList->getFirstNode();
+
+    while (auxCurrentNode != NULL) {
+
+        loadBackCardTexture();
+        createCardSprite(cardTexture);
+
+        cardSprite.setPosition(posCardX, posCardY);
+        backgroundWindow.draw(cardSprite);
+
+        posCardY += margen;
+        auxCurrentNode = auxCurrentNode->getNextNode();
+    }
+}
+
 void Graphics::drawGameDiscardList()
 {
     float cardScale = 0.060;
@@ -89,29 +125,6 @@ void Graphics::drawGameDiscardList()
         // Incrementa la posición en X para la siguiente carta
         posCardX += margen; // Incremento fijo de margen en X
 
-        auxCurrentNode = auxCurrentNode->getNextNode();
-    }
-}
-
-void Graphics::drawGameDeckCardList()
-{
-    float cardScale = 0.060;
-    float margen = 1;
-    int posCardX = 15;
-    int posCardY = 250;
-    cardSprite.setScale(cardScale, cardScale);
-
-    Node* auxCurrentNode = gameDeckCardList->getFirstNode();
-
-    while (auxCurrentNode != NULL) {
-
-        loadBackCardTexture();
-        createCardSprite(cardTexture);
-
-        cardSprite.setPosition(posCardX, posCardY);
-        backgroundWindow.draw(cardSprite);
-
-        posCardY += margen;
         auxCurrentNode = auxCurrentNode->getNextNode();
     }
 }
