@@ -1,8 +1,10 @@
 #include "Dealer.h"
 
+Dealer::Dealer() {}
+
 Dealer::Dealer(DeckCardList* deckOfCards)
 {
-	cardDeckList = deckOfCards;
+    cardDeckList = deckOfCards;
 }
 
 Dealer::~Dealer()
@@ -11,39 +13,39 @@ Dealer::~Dealer()
 
 void Dealer::setCardList(DeckCardList* ptrCardList)
 {
-	cardDeckList = ptrCardList;
+    cardDeckList = ptrCardList;
 }
 
 DeckCardList* Dealer::getCardList()
 {
-	return cardDeckList;
+    return cardDeckList;
 }
 
 int Dealer::countNodes(DeckCardList* deckOfCards)
 {
-	Node* indexNode = deckOfCards->getFirstNode();
-	int numberCardsDeck = 0;
+    Node* indexNode = deckOfCards->getFirstNode();
+    int numberCardsDeck = 0;
 
-	while (indexNode != nullptr) {
-		indexNode = indexNode->getNextNode();
-		numberCardsDeck++;
-	}
-	return numberCardsDeck;
+    while (indexNode != nullptr) {
+        indexNode = indexNode->getNextNode();
+        numberCardsDeck++;
+    }
+    return numberCardsDeck;
 }
 
 void Dealer::swapCardsOnNodes(Node* indexNode1, Node* indexNode2)
 {
-	Card* auxiliarCardNode1;
-	Card* auxiliarCardNode2;
+    Card* auxiliarCardNode1;
+    Card* auxiliarCardNode2;
 
-	auxiliarCardNode1 = indexNode1->getUnoCard();
-	auxiliarCardNode2 = indexNode2->getUnoCard();
+    auxiliarCardNode1 = indexNode1->getUnoCard();
+    auxiliarCardNode2 = indexNode2->getUnoCard();
 
-	indexNode1->setUnoCard(auxiliarCardNode2);
-	indexNode2->setUnoCard(auxiliarCardNode1);
+    indexNode1->setUnoCard(auxiliarCardNode2);
+    indexNode2->setUnoCard(auxiliarCardNode1);
 }
 
-void Dealer::shufleMaze(DeckCardList* deckOfCards)
+void Dealer::shuffleCardDeckList(DeckCardList* deckOfCards)
 {
     srand(time(nullptr));
 

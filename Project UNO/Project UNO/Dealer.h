@@ -6,6 +6,7 @@ class Dealer
 private:
 	DeckCardList* cardDeckList;
 public:
+	Dealer();
 	Dealer(DeckCardList*);
 	~Dealer();
 
@@ -14,5 +15,5 @@ public:
 
 	int countNodes(DeckCardList* deckOfCards);
 	void swapCardsOnNodes(Node*, Node*);
-	void shufleMaze(DeckCardList*);
+	void shuffleCardDeckList(DeckCardList*);
 };
