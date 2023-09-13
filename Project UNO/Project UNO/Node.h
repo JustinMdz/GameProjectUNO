@@ -16,4 +16,3 @@ public:
 	Node* getNextNode();
 	string toString();
 };
-

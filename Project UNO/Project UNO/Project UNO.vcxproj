@@ -139,6 +139,7 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameRule.cpp" />
     <ClCompile Include="Graphics.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Project UNO main.cpp" />
@@ -152,6 +153,7 @@
     <ClInclude Include="GameRule.h" />
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="Librarys.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Player.h" />
   </ItemGroup>
