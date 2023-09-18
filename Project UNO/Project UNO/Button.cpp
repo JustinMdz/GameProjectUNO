@@ -30,3 +30,14 @@ bool Button::contains(Vector2f point)
 {
 	return buttonShape.getGlobalBounds().contains(point);
 }
+
+bool Button::startUnoGame()
+{
+    this->buttonTouched = true;
+	return buttonTouched;
+}
+
+bool Button::getButtonTouched()
+{
+	return buttonTouched;
+}

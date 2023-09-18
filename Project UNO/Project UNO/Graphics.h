@@ -17,10 +17,11 @@ private:
 
 	DeckCardList* gameDeckCardList;
 	DeckCardList* gameDiscardCardList;
-	DeckCardList* playerDeckCardList;
+	DeckCardList* playerOneDeckCardList;
+	DeckCardList* playerTwoDeckCardList;
 
-	Button* startGame = new Button(100, 200, 300, 400);
-	Menu* mainMenu = new Menu(200, 300);
+	Button* startGame;
+	Menu* mainMenu;
 	bool menuOptionOneSelected = false;
 
 public:
@@ -31,21 +32,28 @@ public:
 	void extendBackground();
 	void runBackground();
 
+	void renderOptions();
+	void renderMainMenuAndStartButton();
+	void drawAllDecksInGame();
+
 	void loadCardTexture(string, string);
 	void loadBackCardTexture();
 	void createCardSprite(Texture&);
 
-	void drawPlayerDeckList();
+	void drawPlayerOneDeckList();
+	void drawPlayerTwoDeckList();
 	void drawGameDeckCardList();
 	void drawGameDiscardList();
 
-	void setPlayerDeckToShow(DeckCardList*&);
+	void setPlayerOneDeckToShow(DeckCardList*&);
+	void setPlayerTwoDeckToShow(DeckCardList*&);
 	void setDiscardListToShow(DeckCardList*&);
 	void setGameDeckCardListToShow(DeckCardList*&);
 
 	void runMenuOptions();
 	void runMenuMoves(Event&);
 	void processMenuEvents(Event&);
-
 	void handleMouseClick(Event&);
+
+	Button* getStartGameButton();
 };

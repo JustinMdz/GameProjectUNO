@@ -1,6 +1,14 @@
 #include "Graphics.h"
 
 Graphics::Graphics() : backgroundWindow(VideoMode(1080, 720), "BackWindow") {
+    startGame = new Button(100, 200, 300, 400);
+    mainMenu = new Menu(200, 300);
+    gameDeckCardList = new DeckCardList();
+    gameDiscardCardList= new DeckCardList();
+    playerOneDeckCardList = new DeckCardList();
+    playerTwoDeckCardList = new DeckCardList();
+  
+
     if (!backgroundTexture.loadFromFile("gameBackground.jpg")) {
         return;
     }
@@ -22,18 +30,7 @@ void Graphics::processEvents()
 void Graphics::render() {
     backgroundWindow.clear();
     backgroundWindow.draw(backgroundSprite);
-
-    /*if (menuOptionOneSelected) {
-        startGame->draw(backgroundWindow);
-        drawDiscardList();
-        drawMaze();
-        drawPlayerDeckList();
-    }
-
-    mainMenu->isPosibleToDraw(backgroundWindow);*/
-    drawGameDiscardList();
-    drawPlayerDeckList();
-    drawGameDeckCardList();
+    renderOptions();
     backgroundWindow.display();
 }
 
@@ -55,6 +52,31 @@ void Graphics::runBackground() {
     }
 }
 
+void Graphics::renderMainMenuAndStartButton()
+{
+    bool isButtonTouched = startGame->getButtonTouched();
+   
+        mainMenu->isPosibleToDraw(backgroundWindow);
+        if (menuOptionOneSelected) {
+            startGame->draw(backgroundWindow);
+        }
+
+        if (isButtonTouched == true) {
+            drawAllDecksInGame();
+        }
+ }
+
+void Graphics::drawAllDecksInGame()
+{
+        drawGameDiscardList();
+        drawGameDeckCardList();
+        drawPlayerOneDeckList();
+        drawPlayerTwoDeckList();
+}
+
+void Graphics::renderOptions() {
+    renderMainMenuAndStartButton();
+}
 void Graphics::loadCardTexture(string cardId, string cardColor)
 {
     if (!cardTexture.loadFromFile(cardId + cardColor + ".jpg")) {
@@ -129,7 +151,7 @@ void Graphics::drawGameDiscardList()
     }
 }
 
-void Graphics::drawPlayerDeckList()
+void Graphics::drawPlayerOneDeckList()
 {
     float cardScale = 0.075;
     int margen = 40; // Este es el margen deseado
@@ -137,7 +159,7 @@ void Graphics::drawPlayerDeckList()
     int posCardY = 525; // Posición en Y constante para todas las cartas
     cardSprite.setScale(cardScale, cardScale);
 
-    Node* auxCurrentNode = playerDeckCardList->getFirstNode();
+    Node* auxCurrentNode = playerOneDeckCardList->getFirstNode();
 
     string cardColorToInput;
     string cardIdToInput;
@@ -161,11 +183,46 @@ void Graphics::drawPlayerDeckList()
     }
 }
 
-// drawPlayer2Deck = drawPlayer deck pero camnbiamos la Y nada mas
-
-void Graphics::setPlayerDeckToShow(DeckCardList*& playerDeckInGame)
+void Graphics::drawPlayerTwoDeckList()
 {
-    this->playerDeckCardList = playerDeckInGame;
+    float cardScale = 0.075;
+    int margen = 40; // Este es el margen deseado
+    int posCardX = 5; // Posición inicial en X de la primera carta
+    int posCardY = 20; // Posición en Y constante para todas las cartas
+    cardSprite.setScale(cardScale, cardScale);
+
+    Node* auxCurrentNode = playerTwoDeckCardList->getFirstNode();
+
+    string cardColorToInput;
+    string cardIdToInput;
+
+    while (auxCurrentNode != NULL) {
+        cardColorToInput = auxCurrentNode->getUnoCard()->getCardColor();
+        cardIdToInput = auxCurrentNode->getUnoCard()->getCardId();
+
+        loadCardTexture(cardIdToInput, cardColorToInput);
+        createCardSprite(cardTexture);
+
+        // Configura la posición de la carta
+        cardSprite.setPosition(posCardX, posCardY);
+
+        backgroundWindow.draw(cardSprite);
+
+        // Incrementa la posición en X para la siguiente carta
+        posCardX += margen; // Incremento fijo de margen en X
+
+        auxCurrentNode = auxCurrentNode->getNextNode();
+    }
+}
+
+void Graphics::setPlayerOneDeckToShow(DeckCardList*& playerDeckInGame)
+{
+    this->playerOneDeckCardList = playerDeckInGame;
+}
+
+void Graphics::setPlayerTwoDeckToShow(DeckCardList*& playerDeckInGame)
+{
+    this->playerTwoDeckCardList = playerDeckInGame;
 }
 
 void Graphics::setDiscardListToShow(DeckCardList*& discardCardListInGame)
@@ -231,6 +288,11 @@ void Graphics::handleMouseClick(Event& buttonEvent)
 
         if (startGame->contains(mousePosF)) {
             menuOptionOneSelected = false;
+            startGame->startUnoGame();
         }
     }
+}
+
+Button* Graphics::getStartGameButton() {
+    return startGame;
 }
