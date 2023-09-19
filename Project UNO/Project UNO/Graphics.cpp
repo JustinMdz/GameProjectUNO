@@ -1,13 +1,13 @@
 #include "Graphics.h"
 
-Graphics::Graphics() : backgroundWindow(VideoMode(1080, 720), "BackWindow") {
+Graphics::Graphics() : backgroundWindow(VideoMode(1080, 720), "UNO_WINDOW") {
     startGame = new Button(100, 200, 300, 400);
     mainMenu = new Menu(200, 300);
     gameDeckCardList = new DeckCardList();
-    gameDiscardCardList= new DeckCardList();
+    gameDiscardCardList = new DeckCardList();
     playerOneDeckCardList = new DeckCardList();
     playerTwoDeckCardList = new DeckCardList();
-  
+
 
     if (!backgroundTexture.loadFromFile("gameBackground.jpg")) {
         return;
@@ -44,9 +44,9 @@ void Graphics::extendBackground()
 }
 
 void Graphics::runBackground() {
-
+    extendBackground();
     while (backgroundWindow.isOpen()) {
-        extendBackground();
+        // extendBackground();
         render();
         processEvents();
     }
@@ -55,28 +55,29 @@ void Graphics::runBackground() {
 void Graphics::renderMainMenuAndStartButton()
 {
     bool isButtonTouched = startGame->getButtonTouched();
-   
-        mainMenu->isPosibleToDraw(backgroundWindow);
-        if (menuOptionOneSelected) {
-            startGame->draw(backgroundWindow);
-        }
 
-        if (isButtonTouched == true) {
-            drawAllDecksInGame();
-        }
- }
+    mainMenu->isPosibleToDraw(backgroundWindow);
+    if (menuOptionOneSelected) {
+        startGame->draw(backgroundWindow);
+    }
+
+    if (isButtonTouched == true) {
+        drawAllDecksInGame();
+    }
+}
 
 void Graphics::drawAllDecksInGame()
 {
-        drawGameDiscardList();
-        drawGameDeckCardList();
-        drawPlayerOneDeckList();
-        drawPlayerTwoDeckList();
+    drawGameDiscardList();
+    drawGameDeckCardList();
+    drawPlayerOneDeckList();
+    drawPlayerTwoDeckList();
 }
 
 void Graphics::renderOptions() {
     renderMainMenuAndStartButton();
 }
+
 void Graphics::loadCardTexture(string cardId, string cardColor)
 {
     if (!cardTexture.loadFromFile(cardId + cardColor + ".jpg")) {
@@ -295,4 +296,9 @@ void Graphics::handleMouseClick(Event& buttonEvent)
 
 Button* Graphics::getStartGameButton() {
     return startGame;
+}
+
+RenderWindow& Graphics::getWindow()
+{
+    return backgroundWindow;
 }

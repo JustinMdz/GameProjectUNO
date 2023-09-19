@@ -3,7 +3,8 @@
 #include "Game.h"
 int main()
 {
-    Game* unoMainGame = new Game();
-    unoMainGame->processGamePrincipalMenuOptions();
+    Game* unoGame = new Game();
+    unoGame->run();
+    delete unoGame;
     return 0;
 }

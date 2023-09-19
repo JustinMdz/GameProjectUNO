@@ -1,5 +1,20 @@
-﻿  Game.cpp
+﻿  Button.cpp
+  Game.cpp
+  Graphics.cpp
+C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Graphics.cpp(102,21): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Graphics.cpp(115,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Graphics.cpp(115,32): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Graphics.cpp(118,21): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Graphics.cpp(125,21): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Graphics.cpp(144,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Graphics.cpp(144,32): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Graphics.cpp(157,21): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Graphics.cpp(176,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Graphics.cpp(176,32): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Graphics.cpp(189,21): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Graphics.cpp(208,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Graphics.cpp(208,32): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
   Project UNO main.cpp
   Generando código...
-C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Game.cpp(78): warning C4715: 'Game::getPlayerOnTurn': no todas las rutas de acceso de control devuelven un valor
+C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Game.cpp(57): warning C4715: 'Game::getPlayerOnTurn': no todas las rutas de acceso de control devuelven un valor
   Project UNO.vcxproj -> C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\x64\Debug\Project UNO.exe

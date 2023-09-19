@@ -11,16 +11,6 @@ Game::Game()
     gameGraphics = new Graphics();
 }
 
-void Game::processGamePrincipalMenuOptions()
-{
-    gameGraphics->runBackground();
-    bool isButtonTouched = gameGraphics->getStartGameButton()->getButtonTouched();
-    if (isButtonTouched==true) {
-        cout << "cart";
-        start();
-    }
-}
-
 void Game::fillPlayerName()
 {
     string playerName;
@@ -55,17 +45,6 @@ void Game::firstPlayByDefault()
     gameDiscardDeckList->moveFirstCardOnList(gameDiscardDeckList, gameCardDeckList);
 }
 
-void Game::loadGraphicCardLists()
-{
-    DeckCardList* deckPlayerOne = playerOne->getPlayerDeck();
-    DeckCardList* deckPlayerTwo = playerTwo->getPlayerDeck();
-
-    gameGraphics->setDiscardListToShow(gameDiscardDeckList);
-    gameGraphics->setGameDeckCardListToShow(gameCardDeckList);
-    gameGraphics->setPlayerOneDeckToShow(deckPlayerOne);
-    gameGraphics->setPlayerTwoDeckToShow(deckPlayerTwo);
-}
-
 Player*& Game::getPlayerOnTurn()
 {
     if (indexPlayerTurn % 2 == 0) {
@@ -79,13 +58,13 @@ Player*& Game::getPlayerOnTurn()
 
 void Game::playerTurn(Player*& playerOnTurn)
 {
-     int defaultCardToGrab = 1;
-     if (playerOnTurn->checkIsTrowPossible(gameDiscardDeckList) == true) {
-         playerOnTurn->selectCardToTrow(gameDiscardDeckList);
-     }
-     else {
-         playerOnTurn->grabCard(defaultCardToGrab,gameCardDeckList);
-     }
+    int defaultCardToGrab = 1;
+    if (playerOnTurn->checkIsTrowPossible(gameDiscardDeckList) == true) {
+        playerOnTurn->selectCardToTrow(gameDiscardDeckList);
+    }
+    else {
+        playerOnTurn->grabCard(defaultCardToGrab, gameCardDeckList);
+    }
     string nom;
     cout << "\n\nTurno de : " << playerOnTurn->getName();
     cout << "\nturno : " << indexPlayerTurn << ", Digite algo: ";
@@ -93,20 +72,22 @@ void Game::playerTurn(Player*& playerOnTurn)
 
 }
 
-void Game::start()
-{
+void Game::run() {
+    fillPlayerName();
+    firstPlayByDefault();
     bool endOfTheGame = false;
     int index = 0;
+    gameGraphics->extendBackground();
 
-        fillPlayerName();
-        firstPlayByDefault();
+    while (gameGraphics->getWindow().isOpen() && !endOfTheGame) {
+        //  playerTurn(getPlayerOnTurn());
+        index++;
 
-        while (endOfTheGame != true) {
-            loadGraphicCardLists();
-            playerTurn((getPlayerOnTurn()));
-            index++;
-        }
-        cout << "Fin del juego. Se han jugado " << index << " turnos." << endl;
+        gameGraphics->render();
+        gameGraphics->processEvents();
+    }
+
+    cout << "Fin del juego. Se han jugado " << index << " turnos." << endl;
 }
 
 Game::~Game()
@@ -116,5 +97,4 @@ Game::~Game()
     delete gameCardDeckList;
     delete gameDiscardDeckList;
     delete gameDealer;
-    delete gameGraphics;
 }
