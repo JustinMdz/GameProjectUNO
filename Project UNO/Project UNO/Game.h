@@ -2,6 +2,7 @@
 #include "Librarys.h"
 #include "Player.h"
 #include "Dealer.h"
+#include "Rule.h"
 class Graphics;
 
 class Game {
@@ -14,6 +15,8 @@ private:
 	DeckCardList* gameDiscardDeckList;
 	Dealer* gameDealer;
 	Graphics* gameGraphics;
+	Rule* gameRules;
+
 	int actualPlayer = 1;
 	int indexPlayerTurn = 0;
 
@@ -27,5 +30,8 @@ public:
 	void firstPlayByDefault();
 	void playerTurn(Player*&);
 	Player*& getPlayerOnTurn();
+	void loadAllGraphicsDecks();
+	bool isButtonStarGamePressed();
+
 	~Game();
 };

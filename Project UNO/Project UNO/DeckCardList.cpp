@@ -76,7 +76,7 @@ void DeckCardList::insertZeros()
 	string ceroesId = "0";
 
 	int cardColors = 4;
-	Card* card;
+	Card* card; 
 
 	for (int index = 0; index < cardColors; index++) {
 		card = new Card(ceroesId, auxCardColors[index]);
@@ -116,9 +116,9 @@ void DeckCardList::insertNormalCards()
 
 void DeckCardList::runList()
 {
-	//insertZeros();
-	//insertSpecialCards();
-	//insertNormalCards();
+	insertZeros();
+	insertSpecialCards();
+	insertNormalCards();
 	insertNormalCards();
 }
 
@@ -133,15 +133,9 @@ void DeckCardList::printList()
 
 void DeckCardList::moveFirstCardOnList(DeckCardList*& playerDeck, DeckCardList*& cardDeck)
 {
-	//revisar metodos, los dos primeros son lo mismo, considero mas apropiado el tercero, pero no se por que no funciona
-
-	/*string  colorToMove = cardDeck->getFirstNode()->getUnoCard()->getCardColor();
+	string  colorToMove = cardDeck->getFirstNode()->getUnoCard()->getCardColor();
 	string  idToMove = cardDeck->getFirstNode()->getUnoCard()->getCardId();
-	Card* cardToMove = new Card(idToMove, colorToMove);*/
-	Card* cardToMove = new Card((cardDeck->getFirstNode()->getUnoCard()->getCardId()), (cardDeck->getFirstNode()->getUnoCard()->getCardColor()));
-
-	/*Card* cardToMove = new Card();
-	cardToMove = cardDeck->getFirstNode()->getUnoCard();*/
+	Card* cardToMove = new Card(idToMove, colorToMove);
 
 	playerDeck->insertFirstNode(cardToMove);
 	cardDeck->deleteFirstNode();

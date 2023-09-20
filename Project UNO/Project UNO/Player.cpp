@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "Graphics.h"
 
 Player::Player()
 {
@@ -84,52 +85,8 @@ bool Player::checkIsTrowPossible(DeckCardList*& discardMaze)
 	return isTrowPossible;
 }
 
-bool Player::checkPlayerWrittenCard(string idOfCardToCheck, string colorOfCardToCheck, DeckCardList*& discardMaze)
-{
-	bool wrritenIsOk = false;
 
-	if ((idOfCardToCheck == discardMaze->getFirstNode()->getUnoCard()->getCardId()) ||
-		(colorOfCardToCheck == discardMaze->getFirstNode()->getUnoCard()->getCardColor())) {
-
-		wrritenIsOk = true;
-	}
-
-	if ((idOfCardToCheck != discardMaze->getFirstNode()->getUnoCard()->getCardId()) &&
-		(colorOfCardToCheck != discardMaze->getFirstNode()->getUnoCard()->getCardColor())) {
-		cout << "Error, enter the card ID and color again please";
-	}
-
-	return wrritenIsOk;
-}
-
-void Player::selectCardToTrow(DeckCardList*& discardMaze)
-{
-	string colorOfCardToCheck;
-	string idOfCardToCheck;
-
-	bool stringError = true;
-	Card* cardToMove;
-
-	while (stringError == true) {
-
-		cout << "\n\nEnter the ID of the card to trow: ";
-		cin >> idOfCardToCheck;
-
-		cout << "\n\nNow enter the color of card to trow: ";
-		cin >> colorOfCardToCheck;
-
-		if ((checkPlayerWrittenCard(idOfCardToCheck, colorOfCardToCheck, discardMaze)) == true) {
-
-			cardToMove = playerDeckCardList->getCardToMove(idOfCardToCheck, colorOfCardToCheck);
-			discardMaze->insertFirstNode(cardToMove);
-
-			playerDeckCardList->deleteNode(cardToMove);
-			stringError = false;
-		}
-	}
-}
-
-void Player::grabCard(int cardsToDraw, DeckCardList*& deckOfGame)//supongo que en una clase futuro game o rules tendra este metodo por parametro
+void Player::grabCard(int cardsToDraw, DeckCardList*& deckOfGame)
 {
 	for (int index = 0; index < cardsToDraw; index++) {
 		playerDeckCardList->moveFirstCardOnList(playerDeckCardList, deckOfGame);

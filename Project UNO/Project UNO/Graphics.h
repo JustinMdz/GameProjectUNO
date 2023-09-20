@@ -3,7 +3,6 @@
 #include "Menu.h"
 #include "Button.h"
 #include "DeckCardList.h"
-#include "Game.h"
 using namespace sf;
 
 class Graphics
