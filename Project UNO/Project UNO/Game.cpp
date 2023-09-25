@@ -77,7 +77,7 @@ bool Game::isButtonStarGamePressed()
     if (gameGraphics->getStartGameButton()->getButtonTouched()==true) {
         return true;
     }
-    else {
+    if (gameGraphics->getStartGameButton()->getButtonTouched() != true) {
         return false;
     }
 }
@@ -85,15 +85,10 @@ bool Game::isButtonStarGamePressed()
 void Game::playerTurn(Player*& playerOnTurn)
 {
     loadAllGraphicsDecks();
-    //int defaultCardToGrab = 1;
-    //if (playerOnTurn->checkIsTrowPossible(gameDiscardDeckList) == true) {
-    //    //playerOnTurn->selectCardToTrow(gameDiscardDeckList);
-    //}
-    //else {
-    //    playerOnTurn->grabCard(defaultCardToGrab, gameCardDeckList);
-    //}
-
-    //rules
+    int defaultCardToGrab = 1;
+    if (playerOnTurn->checkIsTrowPossible(gameDiscardDeckList) == true) {
+       //playerOnTurn->selectCardToTrow(gameDiscardDeckList);
+    }
 }
 
 void Game::run() {
@@ -101,10 +96,10 @@ void Game::run() {
     bool endOfTheGame = false;
     gameGraphics->extendBackground();
 
-   // fillPlayerName();
+    //fillPlayerName();
     firstPlayByDefault();
 
-    while (gameGraphics->getWindow().isOpen() && !endOfTheGame) {
+    while (gameGraphics->getWindow().isOpen() && endOfTheGame!=true) {
        loadAllGraphicsDecks();
 
         if (isButtonStarGamePressed()) { 
@@ -113,7 +108,7 @@ void Game::run() {
         indexPlayerTurn++;
     }
 
-    cout << "Fin del juego. Se han jugado " << indexPlayerTurn << " turnos." << endl;
+    cout << "End of the game, " << indexPlayerTurn << " rounds have been played." << endl;
 }
 
 Game::~Game()

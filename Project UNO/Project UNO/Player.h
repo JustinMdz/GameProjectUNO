@@ -10,6 +10,7 @@ class Player
 private:
 	string playerName;
 	DeckCardList* playerDeckCardList;
+	bool playerTurn;
 
 public:
 
@@ -30,6 +31,8 @@ public:
 	void grabCard(int cardsToDraw, DeckCardList*& deckOfGame);
 
 	void printPlayerDeck();
+
+	bool finishTurn();
 
 	~Player();
 };

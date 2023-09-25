@@ -8,6 +8,7 @@ using namespace sf;
 class Graphics
 {
 private:
+
 	RenderWindow backgroundWindow;
 	Texture backgroundTexture;
 	Sprite backgroundSprite;
@@ -40,13 +41,15 @@ public:
 	void loadBackCardTexture();
 	void createCardSprite(Texture&);
 
-	void drawPlayerOneDeckList();
-	void drawPlayerTwoDeckList();
+	void drawPlayerDeckList(DeckCardList*&, int);
+	void drawPlayersDecksList();
+
 	void drawGameDeckCardList();
 	void drawGameDiscardList();
 
 	void setPlayerOneDeckToShow(DeckCardList*&);
 	void setPlayerTwoDeckToShow(DeckCardList*&);
+
 	void setDiscardListToShow(DeckCardList*&);
 	void setGameDeckCardListToShow(DeckCardList*&);
 

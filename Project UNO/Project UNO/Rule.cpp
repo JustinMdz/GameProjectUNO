@@ -7,7 +7,7 @@ Rule::Rule()
 void Rule::reverseCardAndBlockCard(int& indexTurnsofPlayers, Player*& playerOnTurn, DeckCardList*& discardGameList)
 {
 	if (discardGameList->getFirstNode()->getUnoCard()->getCardId() == "Reverse" || "Block") {
-		//playerOnTurn->finishTurn();
+		playerOnTurn->finishTurn();
 	}
 }
 
@@ -28,7 +28,7 @@ void Rule::changeColor(Player*& playerOnTurn, DeckCardList*& discardGameList, De
 	}
 	if(!playerOnTurn->checkIsTrowPossible(discardGameList)) {
 		playerOnTurn->grabCard(1,deckGameCardList);
-		//playerOnTurn->finishTurn();
+		playerOnTurn->finishTurn();
 	}
 }
 
@@ -39,7 +39,6 @@ void Rule::grabCards(Player*& playerOnTurn, DeckCardList*& discardGameList,DeckC
 
 	int cardsToGrabIfColorCardPlus2 = 2;
 	int cardsToGrabIfSpecialCardPlus4 = 4;
-
 
 	if (discardGameList->getFirstNode()->getUnoCard()->getCardId() == colorCardPlus2) {
 		playerOnTurn->grabCard(cardsToGrabIfColorCardPlus2,deckGameCardList);

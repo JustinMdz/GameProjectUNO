@@ -7,10 +7,6 @@ Dealer::Dealer(DeckCardList* deckOfCards)
     cardDeckList = deckOfCards;
 }
 
-Dealer::~Dealer()
-{
-}
-
 void Dealer::setCardList(DeckCardList* ptrCardList)
 {
     cardDeckList = ptrCardList;
@@ -69,4 +65,9 @@ void Dealer::shuffleCardDeckList(DeckCardList* deckOfCards)
         }
         swapCardsOnNodes(indexNode1, indexNode2);
     }
+}
+
+Dealer::~Dealer()
+{
+    delete cardDeckList;
 }

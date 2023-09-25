@@ -5,15 +5,6 @@ DeckCardList::DeckCardList()
 	firstNode = currentNode = NULL;
 }
 
-DeckCardList::~DeckCardList()
-{
-	while (firstNode != NULL) {
-		currentNode = firstNode;
-		firstNode = firstNode->getNextNode();
-		delete currentNode;
-	}
-}
-
 void DeckCardList::setFirstNode(Node* ptrFirstNode)
 {
 	firstNode = ptrFirstNode;
@@ -42,6 +33,7 @@ void DeckCardList::deleteNode(Card*& cardToMove)
 {
 	string colorCardInDeck = firstNode->getUnoCard()->getCardColor();
 	string idCardInDeck = firstNode->getUnoCard()->getCardId();
+
 	string cardId = cardToMove->getCardId();
 	string cardColor = cardToMove->getCardColor();
 
@@ -49,8 +41,6 @@ void DeckCardList::deleteNode(Card*& cardToMove)
 	Node* previuosNode = NULL;
 
 	auxDeleteNode = firstNode;
-
-	if (auxDeleteNode != NULL) {
 
 		while ((auxDeleteNode != NULL) || ((cardId != idCardInDeck) && (cardColor != colorCardInDeck))) {
 			previuosNode = auxDeleteNode;
@@ -63,10 +53,9 @@ void DeckCardList::deleteNode(Card*& cardToMove)
 			deleteFirstNode();
 		}
 
-		else {
+		if (previuosNode != NULL) {
 			previuosNode->setNextNode(auxDeleteNode->getNextNode());
 			delete auxDeleteNode;
-		}
 	}
 }
 
@@ -169,4 +158,13 @@ bool DeckCardList::isListEmpty()
 		listEmpty = true;
 	}
 	return listEmpty;
+}
+
+DeckCardList::~DeckCardList()
+{
+	while (firstNode != NULL) {
+		currentNode = firstNode;
+		firstNode = firstNode->getNextNode();
+		delete currentNode;
+	}
 }

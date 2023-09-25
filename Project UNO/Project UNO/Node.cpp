@@ -5,11 +5,6 @@ Node::Node(Card* ptrCard = NULL, Node* ptrNextNode = NULL) {
 	nextNode = ptrNextNode;
 }
 
-Node::~Node()
-{
-	delete unoCard;
-}
-
 void Node::setUnoCard(Card* ptrCard)
 {
 	unoCard = ptrCard;
@@ -35,4 +30,9 @@ string Node::toString()
 	stringstream ss;
 	ss << unoCard->toString();
 	return ss.str();
+}
+
+Node::~Node()
+{
+	delete unoCard;
 }

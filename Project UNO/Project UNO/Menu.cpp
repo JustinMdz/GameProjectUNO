@@ -1,18 +1,18 @@
 #include "Menu.h"
 
-Menu::Menu(float width, float height)
+Menu::Menu()
 {
 	if (!fontType.loadFromFile("Fonts/arial.ttf")) {
 		cout << "No font is here";
 	}
 
-	int yPosIndex = 0;
+	int indexPositionInY = 0;
 	for (int index = 0; index < MENU_OPTIONS; index++) {
-		yPosIndex += 200;
+		indexPositionInY += 200;
 		mainMenuOptions[index].setFont(fontType);
 		mainMenuOptions[index].setFillColor(Color::White);
 		mainMenuOptions[index].setCharacterSize(70);
-		mainMenuOptions[index].setPosition(400, yPosIndex);
+		mainMenuOptions[index].setPosition(400, indexPositionInY);
 	}
 	mainMenuOptions[0].setString("Play");
 	mainMenuOptions[1].setString("Options");
@@ -80,3 +80,6 @@ void Menu::drawMenu(RenderWindow& menuBackgroundWindow)
 		menuBackgroundWindow.draw(mainMenuOptions[index]);
 	}
 }
+
+Menu::~Menu()
+{}

@@ -1,15 +1,18 @@
 #pragma once
 #include "Librarys.h"
 #include "Node.h"
+
 class DeckCardList
 {
 private:
+
 	Node* firstNode;
 	Node* currentNode;
-public:
-	DeckCardList();
-	~DeckCardList();
 
+public:
+
+	DeckCardList();
+	
 	void setFirstNode(Node* ptrFirstNode);
 	Node* getFirstNode();
 
@@ -23,11 +26,12 @@ public:
 	void insertNormalCards();
 
 	void runList();
-
 	void printList();
 
 	void moveFirstCardOnList(DeckCardList*&, DeckCardList*&);
 
 	Card* getCardToMove(string, string);
 	bool isListEmpty();
+
+	~DeckCardList();
 };

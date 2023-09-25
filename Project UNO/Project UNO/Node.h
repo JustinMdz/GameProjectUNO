@@ -4,10 +4,13 @@
 
 class Node {
 
-private: 
+private:
+
 	Card* unoCard;
 	Node* nextNode;
+
 public:
+
 	Node(Card*, Node*);
 	~Node();
 	void setUnoCard(Card* ptrCard);

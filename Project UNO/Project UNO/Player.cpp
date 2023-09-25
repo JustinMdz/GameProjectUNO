@@ -85,7 +85,6 @@ bool Player::checkIsTrowPossible(DeckCardList*& discardMaze)
 	return isTrowPossible;
 }
 
-
 void Player::grabCard(int cardsToDraw, DeckCardList*& deckOfGame)
 {
 	for (int index = 0; index < cardsToDraw; index++) {
@@ -98,4 +97,12 @@ void Player::printPlayerDeck()
 	playerDeckCardList->printList();
 }
 
-Player::~Player() {}
+bool Player::finishTurn()
+{
+	this->playerTurn = false;
+	return playerTurn;
+}
+
+Player::~Player() {
+	delete playerDeckCardList;
+}

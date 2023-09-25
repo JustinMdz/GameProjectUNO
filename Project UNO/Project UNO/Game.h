@@ -3,6 +3,7 @@
 #include "Player.h"
 #include "Dealer.h"
 #include "Rule.h"
+
 class Graphics;
 
 class Game {

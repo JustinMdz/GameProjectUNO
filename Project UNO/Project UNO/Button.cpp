@@ -1,22 +1,23 @@
 #include "Button.h"
 
-Button::Button(float xPos, float yPos, float width, float height)
+Button::Button(float buttonPositionInX, float buttonPositionInY, float buttonWidth, float buttonHeight)
 {
-	buttonShape.setPosition(Vector2f(xPos, yPos));
-	buttonShape.setSize(Vector2f(width, height));
-	buttonShape.setFillColor(Color::Black);
+	buttonShape.setPosition(Vector2f(buttonPositionInX, buttonPositionInY));
+	buttonShape.setSize(Vector2f(buttonWidth, buttonHeight));
+	buttonShape.setFillColor(Color::White);
 
 	if (!buttonFont.loadFromFile("Fonts//arial.ttf")) {
-		cout << "No se pudo cargar la fuente" << endl;
+		cout << "Font Error" << endl;
 	}
 
 	buttonText.setFont(buttonFont);
 	buttonText.setString("Start Game");
-	buttonText.setCharacterSize(10);
-	buttonText.setFillColor(Color::Red);
+	buttonText.setCharacterSize(30);
+	buttonText.setFillColor(Color::Cyan);
 	buttonText.setStyle(Text::Bold);
 	FloatRect textBounds = buttonText.getLocalBounds();
-	buttonText.setPosition(xPos + width / 2 - textBounds.width / 2, yPos + height / 2 - textBounds.height / 2);
+	buttonText.setPosition(buttonPositionInX + buttonWidth / 2 
+		- textBounds.width / 2, buttonPositionInY + buttonHeight / 2 - textBounds.height / 2);
 }
 
 void Button::draw(RenderWindow& window)

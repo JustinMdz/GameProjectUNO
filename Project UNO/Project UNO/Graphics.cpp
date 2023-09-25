@@ -1,13 +1,12 @@
 #include "Graphics.h"
 
 Graphics::Graphics() : backgroundWindow(VideoMode(1080, 720), "UNO_WINDOW") {
-    startGame = new Button(100, 200, 300, 400);
-    mainMenu = new Menu(200, 300);
+    startGame = new Button(450, 320, 200, 100);
+    mainMenu = new Menu();
     gameDeckCardList = new DeckCardList();
     gameDiscardCardList = new DeckCardList();
     playerOneDeckCardList = new DeckCardList();
     playerTwoDeckCardList = new DeckCardList();
-
 
     if (!backgroundTexture.loadFromFile("gameBackground.jpg")) {
         return;
@@ -46,7 +45,6 @@ void Graphics::extendBackground()
 void Graphics::runBackground() {
     extendBackground();
     while (backgroundWindow.isOpen()) {
-        // extendBackground();
         render();
         processEvents();
     }
@@ -70,8 +68,7 @@ void Graphics::drawAllDecksInGame()
 {
     drawGameDiscardList();
     drawGameDeckCardList();
-    drawPlayerOneDeckList();
-    drawPlayerTwoDeckList();
+    drawPlayersDecksList();
 }
 
 void Graphics::renderOptions() {
@@ -100,9 +97,9 @@ void Graphics::createCardSprite(Texture& textureOfCard)
 void Graphics::drawGameDeckCardList()
 {
     float cardScale = 0.060;
-    float margen = 1;
     int posCardX = 15;
     int posCardY = 250;
+
     cardSprite.setScale(cardScale, cardScale);
 
     Node* auxCurrentNode = gameDeckCardList->getFirstNode();
@@ -114,8 +111,6 @@ void Graphics::drawGameDeckCardList()
 
         cardSprite.setPosition(posCardX, posCardY);
         backgroundWindow.draw(cardSprite);
-
-        posCardY += margen;
         auxCurrentNode = auxCurrentNode->getNextNode();
     }
 }
@@ -123,9 +118,9 @@ void Graphics::drawGameDeckCardList()
 void Graphics::drawGameDiscardList()
 {
     float cardScale = 0.060;
-    int margen = 15; // Este es el margen deseado
-    int posCardX = 650; // Posición inicial en X de la primera carta
-    int posCardY = 250; // Posición en Y constante para todas las cartas
+    int margen = 15;
+    int posCardX = 650; 
+    int posCardY = 250; 
     cardSprite.setScale(cardScale, cardScale);
 
     Node* auxCurrentNode = gameDiscardCardList->getFirstNode();
@@ -139,28 +134,26 @@ void Graphics::drawGameDiscardList()
 
         loadCardTexture(cardIdToInput, cardColorToInput);
         createCardSprite(cardTexture);
-
-        // Configura la posición de la carta
+       
         cardSprite.setPosition(posCardX, posCardY);
 
         backgroundWindow.draw(cardSprite);
 
-        // Incrementa la posición en X para la siguiente carta
-        posCardX += margen; // Incremento fijo de margen en X
+        posCardX += margen; 
 
         auxCurrentNode = auxCurrentNode->getNextNode();
     }
 }
 
-void Graphics::drawPlayerOneDeckList()
+void Graphics::drawPlayerDeckList(DeckCardList*& playerDeckList, int deckYPos)
 {
     float cardScale = 0.075;
-    int margen = 40; // Este es el margen deseado
-    int posCardX = 5; // Posición inicial en X de la primera carta
-    int posCardY = 525; // Posición en Y constante para todas las cartas
+    int margen = 38;
+    int posCardX = 5;
+    int posCardY = deckYPos;
     cardSprite.setScale(cardScale, cardScale);
 
-    Node* auxCurrentNode = playerOneDeckCardList->getFirstNode();
+    Node* auxCurrentNode = playerDeckList->getFirstNode();
 
     string cardColorToInput;
     string cardIdToInput;
@@ -172,48 +165,26 @@ void Graphics::drawPlayerOneDeckList()
         loadCardTexture(cardIdToInput, cardColorToInput);
         createCardSprite(cardTexture);
 
-        // Configura la posición de la carta
+
         cardSprite.setPosition(posCardX, posCardY);
 
         backgroundWindow.draw(cardSprite);
 
-        // Incrementa la posición en X para la siguiente carta
-        posCardX += margen; // Incremento fijo de margen en X
+        posCardX += margen;
 
         auxCurrentNode = auxCurrentNode->getNextNode();
     }
+
+
 }
 
-void Graphics::drawPlayerTwoDeckList()
+void Graphics::drawPlayersDecksList()
 {
-    float cardScale = 0.075;
-    int margen = 40; // Este es el margen deseado
-    int posCardX = 5; // Posición inicial en X de la primera carta
-    int posCardY = 20; // Posición en Y constante para todas las cartas
-    cardSprite.setScale(cardScale, cardScale);
+    int yPosDeckPlayerOne = 525;
+    int yPosDeckPlayerTwo = 20;
 
-    Node* auxCurrentNode = playerTwoDeckCardList->getFirstNode();
-
-    string cardColorToInput;
-    string cardIdToInput;
-
-    while (auxCurrentNode != NULL) {
-        cardColorToInput = auxCurrentNode->getUnoCard()->getCardColor();
-        cardIdToInput = auxCurrentNode->getUnoCard()->getCardId();
-
-        loadCardTexture(cardIdToInput, cardColorToInput);
-        createCardSprite(cardTexture);
-
-        // Configura la posición de la carta
-        cardSprite.setPosition(posCardX, posCardY);
-
-        backgroundWindow.draw(cardSprite);
-
-        // Incrementa la posición en X para la siguiente carta
-        posCardX += margen; // Incremento fijo de margen en X
-
-        auxCurrentNode = auxCurrentNode->getNextNode();
-    }
+    drawPlayerDeckList(playerOneDeckCardList, yPosDeckPlayerOne);
+    drawPlayerDeckList(playerTwoDeckCardList, yPosDeckPlayerTwo);
 }
 
 void Graphics::setPlayerOneDeckToShow(DeckCardList*& playerDeckInGame)
@@ -242,11 +213,8 @@ void Graphics::runMenuOptions()
 
     if (pressedItem == 0) {
         mainMenu->setOffOption();
-        menuOptionOneSelected = true; // Opción uno está seleccionada
+        menuOptionOneSelected = true;
         render();
-    }
-    else {
-        menuOptionOneSelected = false; // Opción uno ya no está seleccionada
     }
 
     if (pressedItem == 1) {
@@ -254,6 +222,7 @@ void Graphics::runMenuOptions()
         render();
         cout << "Options pressed";
     }
+
     if (pressedItem == 2) {
         backgroundWindow.close();
     }

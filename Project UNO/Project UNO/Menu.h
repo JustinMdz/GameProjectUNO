@@ -15,7 +15,7 @@ private:
 
 public:
 
-	Menu(float, float);
+	Menu();
 
 	int getPressedItem();
 	bool getOption();
