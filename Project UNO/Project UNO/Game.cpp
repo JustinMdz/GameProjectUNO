@@ -87,7 +87,7 @@ void Game::playerTurn(Player*& playerOnTurn)
     loadAllGraphicsDecks();
     int defaultCardToGrab = 1;
     if (playerOnTurn->checkIsTrowPossible(gameDiscardDeckList) == true) {
-       //playerOnTurn->selectCardToTrow(gameDiscardDeckList);
+       playerOnTurn->selectCardToTrow(gameGraphics, gameDiscardDeckList);
     }
 }
 
@@ -96,7 +96,7 @@ void Game::run() {
     bool endOfTheGame = false;
     gameGraphics->extendBackground();
 
-    //fillPlayerName();
+    fillPlayerName();
     firstPlayByDefault();
 
     while (gameGraphics->getWindow().isOpen() && endOfTheGame!=true) {

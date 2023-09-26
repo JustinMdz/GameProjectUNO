@@ -1,7 +1,8 @@
 #include "Graphics.h"
 
 Graphics::Graphics() : backgroundWindow(VideoMode(1080, 720), "UNO_WINDOW") {
-    startGame = new Button(450, 320, 200, 100);
+    startGame = new Button("Start Game!", 450, 280, 200, 100);
+    skipTurn = new Button("Skip Turn", 925, 315, 150, 50);
     mainMenu = new Menu();
     gameDeckCardList = new DeckCardList();
     gameDiscardCardList = new DeckCardList();
@@ -69,6 +70,7 @@ void Graphics::drawAllDecksInGame()
     drawGameDiscardList();
     drawGameDeckCardList();
     drawPlayersDecksList();
+    skipTurn->draw(backgroundWindow);
 }
 
 void Graphics::renderOptions() {
@@ -119,8 +121,8 @@ void Graphics::drawGameDiscardList()
 {
     float cardScale = 0.060;
     int margen = 15;
-    int posCardX = 650; 
-    int posCardY = 250; 
+    int posCardX = 650;
+    int posCardY = 250;
     cardSprite.setScale(cardScale, cardScale);
 
     Node* auxCurrentNode = gameDiscardCardList->getFirstNode();
@@ -134,12 +136,12 @@ void Graphics::drawGameDiscardList()
 
         loadCardTexture(cardIdToInput, cardColorToInput);
         createCardSprite(cardTexture);
-       
+
         cardSprite.setPosition(posCardX, posCardY);
 
         backgroundWindow.draw(cardSprite);
 
-        posCardX += margen; 
+        posCardX += margen;
 
         auxCurrentNode = auxCurrentNode->getNextNode();
     }

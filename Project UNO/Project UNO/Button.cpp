@@ -1,6 +1,6 @@
 #include "Button.h"
 
-Button::Button(float buttonPositionInX, float buttonPositionInY, float buttonWidth, float buttonHeight)
+Button::Button(string buttonName, float buttonPositionInX, float buttonPositionInY, float buttonWidth, float buttonHeight)
 {
 	buttonShape.setPosition(Vector2f(buttonPositionInX, buttonPositionInY));
 	buttonShape.setSize(Vector2f(buttonWidth, buttonHeight));
@@ -11,12 +11,12 @@ Button::Button(float buttonPositionInX, float buttonPositionInY, float buttonWid
 	}
 
 	buttonText.setFont(buttonFont);
-	buttonText.setString("Start Game");
+	buttonText.setString(buttonName);
 	buttonText.setCharacterSize(30);
-	buttonText.setFillColor(Color::Cyan);
+	buttonText.setFillColor(Color::Black);
 	buttonText.setStyle(Text::Bold);
 	FloatRect textBounds = buttonText.getLocalBounds();
-	buttonText.setPosition(buttonPositionInX + buttonWidth / 2 
+	buttonText.setPosition(buttonPositionInX + buttonWidth / 2
 		- textBounds.width / 2, buttonPositionInY + buttonHeight / 2 - textBounds.height / 2);
 }
 
@@ -34,7 +34,7 @@ bool Button::contains(Vector2f point)
 
 bool Button::startUnoGame()
 {
-    this->buttonTouched = true;
+	this->buttonTouched = true;
 	return buttonTouched;
 }
 

@@ -25,6 +25,7 @@ private:
 	DeckCardList* playerTwoDeckCardList;
 
 	Button* startGame;
+	Button* skipTurn;
 	Menu* mainMenu;
 	bool menuOptionOneSelected = false;
 

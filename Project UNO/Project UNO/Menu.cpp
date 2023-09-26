@@ -43,12 +43,13 @@ void Menu::setOffOption()
 
 void Menu::moveOptionUp()
 {
-	if (selectedOptionMenuIndex - 1 >= 0) {
+	int maxOptionsInMenu = 2;
+	if (selectedOptionMenuIndex - 1 >= 0){
 		mainMenuOptions[selectedOptionMenuIndex].setFillColor(Color::White);
 		selectedOptionMenuIndex--;
 
 		if (selectedOptionMenuIndex == -1) {
-			selectedOptionMenuIndex = 2;
+			selectedOptionMenuIndex = maxOptionsInMenu;
 		}
 		mainMenuOptions[selectedOptionMenuIndex].setFillColor(Color::Blue);
 	}
@@ -56,14 +57,15 @@ void Menu::moveOptionUp()
 
 void Menu::moveOptionDown()
 {
+	int minOptionInMenu = 0;
 	if (selectedOptionMenuIndex + 1 <= MENU_OPTIONS) {
 		mainMenuOptions[selectedOptionMenuIndex].setFillColor(Color::White);
 		selectedOptionMenuIndex++;
 
 		if (selectedOptionMenuIndex == MENU_OPTIONS) {
-			selectedOptionMenuIndex = 0;
+			selectedOptionMenuIndex = minOptionInMenu;
 		}
-		mainMenuOptions[selectedOptionMenuIndex].setFillColor(Color::Blue);
+		mainMenuOptions[selectedOptionMenuIndex].setFillColor(Color::Green);
 	}
 }
 

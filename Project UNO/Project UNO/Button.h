@@ -15,7 +15,7 @@ private:
 
 public:
 
-    Button(float, float, float, float);
+    Button(string, float, float, float, float);
     void draw(RenderWindow&);
     bool contains(Vector2f);
     bool startUnoGame();
