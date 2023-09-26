@@ -85,6 +85,28 @@ bool Player::checkIsTrowPossible(DeckCardList*& discardMaze)
 	return isTrowPossible;
 }
 
+void Player::selectCardToTrow(Graphics*&, DeckCardList*&)
+{
+
+}
+
+void Player::changueSpecialCardColor(Card*& specialCardInHand)
+{
+	bool stringError = true;
+	string newColor;
+	while (stringError != false) {
+		cout << "Enter the new Color to specialCard: ";
+		cin >> newColor;
+		if (newColor == "Blue"||"Red"||"Green" || "Yellow") {
+			specialCardInHand->setColor(newColor);
+			stringError = false;
+		}
+		if (stringError = true) {
+			cout << "Color error, please enter the color of the card\n\n";
+		}
+	}
+}
+
 void Player::grabCard(int cardsToDraw, DeckCardList*& deckOfGame)
 {
 	for (int index = 0; index < cardsToDraw; index++) {

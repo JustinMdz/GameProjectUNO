@@ -2,7 +2,7 @@
 #include "DeckCardList.h"
 #include "Dealer.h"
 #include "Player.h"
-class Rule : public Dealer
+class Rule
 {
 private:
 

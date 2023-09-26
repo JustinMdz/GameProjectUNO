@@ -1,8 +1,9 @@
 #pragma once
-#include <SFML/Graphics.hpp>
 #include "Menu.h"
 #include "Button.h"
 #include "DeckCardList.h"
+#include "GraphicCard.h"
+#include <SFML/Graphics.hpp>
 using namespace sf;
 
 class Graphics
@@ -15,6 +16,8 @@ private:
 
 	Texture cardTexture;
 	Sprite cardSprite;
+
+	GraphicCard** graphicCard;
 
 	DeckCardList* gameDeckCardList;
 	DeckCardList* gameDiscardCardList;

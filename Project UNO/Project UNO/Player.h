@@ -28,6 +28,8 @@ public:
 
 	void selectCardToTrow(Graphics*&, DeckCardList*&);
 
+	void changueSpecialCardColor(Card*&);
+
 	void grabCard(int cardsToDraw, DeckCardList*& deckOfGame);
 
 	void printPlayerDeck();

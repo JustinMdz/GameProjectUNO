@@ -165,7 +165,6 @@ void Graphics::drawPlayerDeckList(DeckCardList*& playerDeckList, int deckYPos)
         loadCardTexture(cardIdToInput, cardColorToInput);
         createCardSprite(cardTexture);
 
-
         cardSprite.setPosition(posCardX, posCardY);
 
         backgroundWindow.draw(cardSprite);
@@ -174,8 +173,6 @@ void Graphics::drawPlayerDeckList(DeckCardList*& playerDeckList, int deckYPos)
 
         auxCurrentNode = auxCurrentNode->getNextNode();
     }
-
-
 }
 
 void Graphics::drawPlayersDecksList()

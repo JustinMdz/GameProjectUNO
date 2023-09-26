@@ -1,2 +1,18 @@
-﻿  Button.cpp
+﻿  Game.cpp
+  GraphicCard.cpp
+  Graphics.cpp
+C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Graphics.cpp(99,21): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Graphics.cpp(112,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Graphics.cpp(112,32): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Graphics.cpp(120,21): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Graphics.cpp(138,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Graphics.cpp(138,32): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Graphics.cpp(150,21): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Graphics.cpp(168,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Graphics.cpp(168,32): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+  Player.cpp
+  Project UNO main.cpp
+  Generando código...
+C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Game.cpp(83): warning C4715: 'Game::isButtonStarGamePressed': no todas las rutas de acceso de control devuelven un valor
+C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\Project UNO\Game.cpp(59): warning C4715: 'Game::getPlayerOnTurn': no todas las rutas de acceso de control devuelven un valor
   Project UNO.vcxproj -> C:\Users\justi\OneDrive\Documentos\GitHub\Proyectos\Project#1\Project UNO\x64\Debug\Project UNO.exe
