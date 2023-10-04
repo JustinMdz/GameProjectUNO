@@ -38,7 +38,7 @@ public:
 	void runBackground();
 
 	void renderOptions();
-	void renderMainMenuAndStartButton();
+	void renderMainMenuAndStartButton();//Puede que no pertenezca a esta clase
 	void drawAllDecksInGame();
 
 	void loadCardTexture(string, string);
@@ -54,8 +54,8 @@ public:
 	void setPlayerOneDeckToShow(DeckCardList*&);
 	void setPlayerTwoDeckToShow(DeckCardList*&);
 
-	void setDiscardListToShow(DeckCardList*&);
-	void setGameDeckCardListToShow(DeckCardList*&);
+	void setDiscardListToShow(DeckCardList*&);//Puede que no pertenezca a esta clase
+	void setGameDeckCardListToShow(DeckCardList*&);//Puede que no pertenezca a esta clase
 
 	void runMenuOptions();
 	void runMenuMoves(Event&);
